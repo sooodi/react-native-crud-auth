@@ -1,0 +1,1 @@
+/Users/sudabework/jobAssignmenttttt/stdev/Reactnativecrud/my-react-app/android/app/build/intermediates/cxx/Debug/4t3w416r/obj/armeabi-v7a
