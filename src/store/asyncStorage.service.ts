@@ -53,7 +53,7 @@ export const getDatas = async (key: string): Promise<any | null> => {
 
     if (value !== null) {
       // We have data!!
-      // console.log("value is: " + JSON.stringify(JSON.parse(value)));
+     
       return JSON.parse(value);
     }
   } catch {

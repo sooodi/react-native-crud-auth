@@ -54,7 +54,6 @@ const client = () => {
         body: data,
       })
         .then((responseJson) => {
-          console.log("postWithImage", JSON.stringify(responseJson));
           return Promise.resolve(JSON.stringify(responseJson));
         })
         .catch((error) => {

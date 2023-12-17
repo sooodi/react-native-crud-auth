@@ -28,11 +28,8 @@ export const Profile: FC<{}> = ({}): ReactElement => {
     dispatch(logout(data?.token?.refresh));
 
     getData("@userinformation").then((e) => {
-      console.log("userinfo____", e);
-
       removeData("@userinformation")
         .then((e) => {
-          console.log(e);
           DevSettings.reload();
         })
         .catch((error) => {});

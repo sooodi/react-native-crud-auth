@@ -8,7 +8,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import ErrorTextComponent from "../components/ErrorTextcomponent";
 
 import AvatarComponent from "../components/AvtarComponent";
-import { checkEmail, checkPassword } from "../utils/functionHandler";
+import { Base_URL, checkEmail, checkPassword } from "../utils/functionHandler";
 import LoadingComponent from "../components/Loadingcomponent";
 
 const INIT_ERROR = {
@@ -61,7 +61,7 @@ export const UserRegistration: FC<{}> = ({}): ReactElement => {
     let isFormNotValid = Object.keys(result).some(function (k) {
       return errors[k] !== undefined;
     });
-    console.log("veeeeeee", isFormNotValid, result);
+
     if (!isFormNotValid) {
       // Form is valid, perform the submission logic
 
@@ -100,7 +100,7 @@ export const UserRegistration: FC<{}> = ({}): ReactElement => {
       formData.append("password", password);
       formData.append("image", data);
 
-      fetch("https://rn-api.codebnb.me/api/user/sign-up/", {
+      fetch(Base_URL + "api/user/sign-up/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -112,7 +112,6 @@ export const UserRegistration: FC<{}> = ({}): ReactElement => {
       })
         .then((response) => response.json())
         .then((responseJson) => {
-          console.log("responseJson", responseJson);
           setLoading(false);
           if (responseJson?.message) goBack();
           else setErrors(responseJson);
@@ -129,7 +128,6 @@ export const UserRegistration: FC<{}> = ({}): ReactElement => {
       <AvatarComponent
         error={errors?.image}
         setImageFile={(imageFile) => {
-          console.log("imageFile", imageFile);
           setImage(imageFile);
         }}
       />

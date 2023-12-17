@@ -19,7 +19,6 @@ export default function useImageLoad() {
     })
       .then((response) => {
         if (response) {
-          // console.log("pickerResult", response);
           _handleImagePicked(response);
         }
       })
@@ -42,7 +41,6 @@ export default function useImageLoad() {
         setImage(`${pickerResult.assets[0].uri}`);
       }
     } catch (e) {
-      console.log({ e });
       alert("Upload failed, sorry ");
     } finally {
       setUploading(false);

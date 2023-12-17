@@ -2,13 +2,15 @@ import axios from "axios";
 import { postAddObject } from "./post.types";
 import {  request } from "../../hook/useAxios";
 import store from "../store";
+import { Base_URL } from "../../utils/functionHandler";
 
-const POST_URL = "https://rn-api.codebnb.me/api/";
+
+const POST_URL = Base_URL+"api/";
 
 const getPosts = async() => {
   try {
     const response = await request.get( POST_URL+ "post/crud/") 
-    console.log("you have mistake , for example count is 10 but max values is 5 ", response.count,response?.results.length);
+  //  console.log("you have mistake , for example count is 10 but max values is // 5 ", response.count,response?.results.length);
     return response?.results;
  } catch (error) {
     console.log("error", error);

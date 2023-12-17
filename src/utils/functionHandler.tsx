@@ -1,3 +1,5 @@
+export const Base_URL = process.env.EXPO_PUBLIC_BASE_URL;
+
 export function checkEmail(param: string): string {
   let value: string;
   if (!param) {

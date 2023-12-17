@@ -21,7 +21,6 @@ export default function RootNavigator() {
   function checkUser() {
     getDatas("@userinformation")
       .then((e) => {
-        console.log(e);
         if (e && e?.token?.access) {
           setIsLogin(true);
           dispatch(isLogin(e));

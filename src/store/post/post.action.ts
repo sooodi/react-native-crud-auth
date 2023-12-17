@@ -137,7 +137,7 @@ export function createPost(postData:postAddObject): CreateThunkAction {
         }
         else
         {
-          console.log("createPost",payload);
+         
         return Promise.resolve();
       }
       }

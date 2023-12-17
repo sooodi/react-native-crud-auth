@@ -1,9 +1,11 @@
 import axios from "axios";
 import { regiserUserObject } from "./user.types";
 import { manipulateAsync } from "expo-image-manipulator";
-import store from "../store";
+import { Base_URL } from "../../utils/functionHandler";
 
-const AUTH_URL = "https://rn-api.codebnb.me/api/user/";
+
+
+const AUTH_URL =Base_URL+ "api/user/";
 const headers = {
   'Content-Type': 'application/json; charset=UTF-8',
  
@@ -11,7 +13,7 @@ const headers = {
 const register =async (userData:regiserUserObject) => {
  
 
-  console.log("register",userData);
+
   let resizedImage = userData.image;
 
   // const manipulateResult = await manipulateAsync(
@@ -36,10 +38,9 @@ const register =async (userData:regiserUserObject) => {
       formData.append("email", userData.email);
       formData.append("password", userData.password);
       formData.append("image",dataImage );
-     
-      console.log("dataImage",dataImage);
+   
       try {
-        let  response=await fetch("https://rn-api.codebnb.me/api/user/sign-up/", {
+        let  response=await fetch(Base_URL+"api/user/sign-up/", {
            method: "POST",
            headers: {
             
@@ -51,34 +52,13 @@ const register =async (userData:regiserUserObject) => {
            body: formData,
          })
        
-         // console.log( "createPost xxx", JSON.stringify(response));
+      
          return Promise.resolve("ok");
        } catch (error) {
          console.log("error",error);
          return null;
        }
-//        fetch("https://rn-api.codebnb.me/api/user/sign-up/", {
-//         method: "POST",
-//         headers: {
-//           Accept: "application/json",
-//           "Content-Type": "multipart/form-data ",
-//         },
 
-//         credentials: "include",
-//         body: formData,
-    
-// })
-//          .then((response) => response.json())
-//         .then((responseJson) => {
-        
-//           console.log("responseJson....",responseJson);
-         
-//         })
-//         .catch((error) => {
-        
-//           console.error(error);
-//         });
- 
 };
 
 const login = async(email:string, password:string) => {
@@ -87,15 +67,15 @@ const login = async(email:string, password:string) => {
     email: email,
     password: password
   };
-  console.log("userData",userData);
+  console.log("userData",userData,AUTH_URL);
   try {
     const response = await axios.post(AUTH_URL + "sign-in/", userData, {
       headers: headers
     });
-    console.log("login__",response?.data);
+   
     return Promise.resolve(response?.data);
   } catch (error) {
-    console.log("error",error);
+  
     return Promise.resolve();
   }
 

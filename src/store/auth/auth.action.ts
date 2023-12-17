@@ -113,7 +113,7 @@ export function register(userData:regiserUserObject): RegisterThunkAction {
     
     AuthService.register(userData).then(
       (payload) => {
-        console.log("register__ action",payload);
+    
         if(!payload)
         {
           dispatch({
