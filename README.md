@@ -14,3 +14,6 @@ for decreasing size of image, before sending to server, you can uncommen below c
   // );
   // resizedImage = manipulateResult.uri;
   and use resizedImage instead  userData.image
+
+
+  *******  bug in Api post lists: "you have mistake , for example count is 10 but max values is // 5 ", response.count,response?.results.length);
